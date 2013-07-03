@@ -8,8 +8,8 @@
 			},
 			"what":[
 
-				"mongo_backup_active.sh",
-				"cd /home/www/chess/ && git checkout master && git reset --hard HEAD && git pull origin master"
+				"mongo_backup.sh",
+				"cd /home/www/myproject/ && git checkout master && git reset --hard HEAD && git pull origin master"
 			]
 		}
 	]
