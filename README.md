@@ -46,7 +46,7 @@ Example:
 Executing the job only if the pusher name is "jdponomarev".
 ```javascript
 "when":{
-  "repository.pusher.name":"jdponomarev"
+  "pusher.name":"jdponomarev"
 }
 ```
 More complex example:
