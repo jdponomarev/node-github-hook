@@ -1,0 +1,19 @@
+{
+  "port":8005,
+    "jobs":[
+        {
+            "name":"pull_code_and_backup",
+            "when":{
+                "repository.pusher.name":"jdponomarev",
+        "head_commit.message":{
+          "type":"contains",
+          "value":"backup"
+        }
+            },
+            "what":[
+                "mongo_backup.sh",
+                "cd /home/www/myproject/ && git checkout master && git reset --hard HEAD && git pull origin master"
+            ]
+        }
+    ]
+}
