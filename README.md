@@ -101,7 +101,8 @@ Running
 ======
 I suggest you to run github-hook-reciever using forever.
 Here is an example on how to do this.
+```bash
 forever start --append -l /var/log/node/github_hook.log -o /var/log/node/github_hook.log -e /var/log/node/github_hook.log -w --watchDirectory /www/node-github-hook/ /www/node-github-hook/index.js
-
+```
 
 
