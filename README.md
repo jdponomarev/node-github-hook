@@ -91,6 +91,8 @@ location /githubhook/{
 ```
 And enter http://your.cool.ip.address./githubhook/ on github.
 
+
+### Example config
 Here is a sample full config file:
 ```javascript
 {
