@@ -30,10 +30,12 @@ JS task is a node.js module which recieves all the data about the task and the c
 A command is executed if no bash script or .js file found.
 
 You can also pass some addtional data into a task:
-tasks:[
-cwd:"/home/www",
-name:"task.js"
-]
+```javascript
+tasks:[{
+	cwd:"/home/www",
+	name:"task.js"
+}]
+```
 CWD is used  for overriding the default directory of the task. More options are coming in the following releases.
 
 ### WHEN
@@ -42,17 +44,17 @@ Using when you can check all the parameters from the data sent to you by github.
 
 Example:
 Executing the job only if the pusher name is "jdponomarev".
-
+```javascript
 "when":{
   "repository.pusher.name":"jdponomarev"
 }
-
+```
 More complex example:
 Executing the job only if the pusher name = jdponomarev and
 repository name is test-repo and
 branch name is test
 and commit message contains "backup" and "release"
-
+```javascript
 "when":{
   "pusher.name":"jdponomarev",
   "repository.name":"test-repo",
@@ -65,7 +67,7 @@ and commit message contains "backup" and "release"
     "type":"contains",
     "value":"backup"
 }
-
+```
 Currently When can only check if commit has complete equality or contains some fields.
 In the following releases more features will be added.
 
