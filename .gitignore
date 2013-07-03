@@ -6,11 +6,11 @@ lib-cov
 *.out
 *.pid
 *.gz
-
 pids
 logs
 results
 config
+config/*
 config/
 tasks
 tasks/
