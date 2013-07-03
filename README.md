@@ -1,7 +1,7 @@
 github-hook-reciever
 ====================
 
-github-hook-reciever is a simple node.js script to handle github hooks in node.js on unix.
+github-hook-reciever is a simple node.js script to handle github hooks on unix.
 It can be used to do any tasks, but it is perfect for deploying simple projects.
 
 Installation
@@ -72,7 +72,24 @@ Currently When can only check if commit has complete equality or contains some f
 In the following releases more features will be added.
 
 
+### Web server configuration
 
+By default, node-github-hook runs on port 8005.
+If your machine is not firewalled then you can simply enter your ip and port on [Github configuration page](https://help.github.com/articles/post-receive-hooks)
+For nginx you can do something like this:
+```
+location /githubhook/{
+	proxy_pass http://127.0.0.1:8005/;
+	deny all;
+	allow 207.97.227.253/32;
+	allow 50.57.128.197/32;
+	allow 108.171.174.178/32;
+	allow 50.57.231.61/32;
+	allow 204.232.175.64/27;
+	allow 192.30.252.0/22;	
+}
+```
+And enter http://your.cool.ip.address./githubhook/ on github.
 
 Here is a sample full config file:
 ```javascript
