@@ -9,7 +9,12 @@ var tasksDir=__dirname+"/tasks/";
 var globalTasksDir=__dirname+"/tasks/";
 //Loading default config
 if(process.argv[2]==null){
-	config=require(__dirname + '/config/config.json');
+	try{
+		config=require(__dirname + '/config/config.json');
+	}catch(e){
+		console.log("no config file found, exiting.");
+		return;
+	}
 }else{
 	
 	try{
@@ -19,6 +24,10 @@ if(process.argv[2]==null){
 		console.log("failed to load config from "+process.argv[2]+", falling back to default config");
 		config=require(__dirname + '/config/config.json');
 	}
+}
+if(config==null){
+	console.log("no config file found, exiting.");
+	return;
 }
 
 //Setting port from config, default is 8005
