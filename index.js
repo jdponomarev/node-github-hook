@@ -112,7 +112,7 @@ var checkJobPrereqs=function(job,commit_data){
 			return false;
 		}
 	}
-	return false;
+	return true;
 };
 var jobDeepChecker=function(prereq,prereq_target,commit_data){
 	//console.log("prereq="+prereq+"   prereq_target="+prereq_target+" "+JSON.stringify(commit_data));
