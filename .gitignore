@@ -9,7 +9,9 @@ lib-cov
 pids
 logs
 results
-config/sample_config.json
-tasks/example_task.js
-tasks/mongo_backup.sh
+config/
+!config/sample_config.json
+tasks/
+!tasks/example_task.js
+!tasks/mongo_backup.sh
 npm-debug.log
