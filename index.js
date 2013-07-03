@@ -12,7 +12,7 @@ if(process.argv[2]==null){
 	try{
 		config=require(__dirname + '/config/config.json');
 	}catch(e){
-		console.log("no config file found, exiting.");
+		console.log("No config file found, exiting. Add a config file to config/config.json, a sample config is located in config/sample_config.json");
 		return;
 	}
 }else{
@@ -26,7 +26,7 @@ if(process.argv[2]==null){
 	}
 }
 if(config==null){
-	console.log("no config file found, exiting.");
+	console.log("No config file found, exiting. Add a config file to config/config.json, a sample config is located in config/sample_config.json");
 	return;
 }
 
