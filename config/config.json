@@ -1,0 +1,16 @@
+{
+	"port":8005,
+	"jobs":[
+		{
+			"name":"pull_code_and_backup",
+			"when":{
+				"repository.pusher.name":"jdponomarev"
+			},
+			"what":[
+
+				"mongo_backup_active.sh",
+				"cd /home/www/chess/ && git checkout master && git reset --hard HEAD && git pull origin master"
+			]
+		}
+	]
+}
