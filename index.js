@@ -129,6 +129,7 @@ var jobDeepChecker=function(prereq,prereq_target,commit_data){
 				console.log("checking task prereq "+prereq+"="+prereq_target+"  failed");
 				return false;
 			}else{
+				console.log("checking task prereq "+prereq+"="+prereq_target+"  ok.");
 				return true;
 			}
 		}else{
@@ -194,7 +195,7 @@ var runTask=function(task,commit_data,job,callback){
 					}
 				});
 			}else if(sh_regexp.test(task_name)===true){
-				//console.log(task_name+" is a shell task");
+				console.log(task_name+" is a shell task");
 				exec('bash '+taskDir+task_name, {
 						cwd : taskDir
 				},function (error, stdout, stderr) {
@@ -215,6 +216,7 @@ var runTask=function(task,commit_data,job,callback){
 					cwd : taskDir
 			},function (error, stdout, stderr) {
 				if(error!=null){
+					console.log("error in task "+task_name+": "+error);
 					callback({res:"err",descr:"error in task "+task_name+": "+error});
 				
 				}else{
