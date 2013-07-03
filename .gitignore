@@ -11,5 +11,7 @@ pids
 logs
 results
 config
-
+config/
+tasks
+tasks/
 npm-debug.log
