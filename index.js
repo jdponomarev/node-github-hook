@@ -122,9 +122,9 @@ var jobDeepChecker=function(prereq,prereq_target,commit_data){
 	try{
 		for(var i=0;i<prereqs_array.length;i++){
 			current_data=current_data[prereqs_array[i]];
-		}
+		}		
 
-		if(typeof prereq_target==="string"){
+		if(typeof prereq_target==="string"){	
 			if(current_data!=prereq_target){
 				console.log("checking task prereq "+prereq+"="+prereq_target+"  failed");
 				return false;
@@ -133,12 +133,17 @@ var jobDeepChecker=function(prereq,prereq_target,commit_data){
 				return true;
 			}
 		}else{
+			console.log("complex prereq");
 			if(prereq_target.type==="contains"){
 				if(current_data.indexOf(prereq_target.value)!==-1){
+					console.log("checking task prereq "+prereq+"="+prereq_target+"  ok.");
 					return true;
+				}else{
+					console.log("checking task prereq "+prereq+"="+prereq_target+"  failed");
+					return false;
 				}
 			}else{
-				console.log("checking task prereq "+prereq+"="+prereq_target+"  failed");
+				console.log("checking task prereq "+prereq+"="+prereq_target+"  failed, unknown complex type.");
 				return false;
 			}
 		}
