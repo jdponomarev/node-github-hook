@@ -68,6 +68,9 @@ if(config.jobs instanceof Array){
 }
 
 var requestHandler=function(commit_data,callback){
+	console.log("commit_data=");
+	console.dir(commit_data);
+
 	if(jobs.length===0){
 		console.log("no jobs, finishing");
 		callback();
@@ -120,10 +123,23 @@ var jobDeepChecker=function(prereq,prereq_target,commit_data){
 		for(var i=0;i<prereqs_array.length;i++){
 			current_data=current_data[prereqs_array[i]];
 		}
-		if(current_data!=prereq_target){
-			return false;
+
+		if(typeof prereq_target==="string"){
+			if(current_data!=prereq_target){
+				console.log("checking task prereq "+prereq+"="+prereq_target+"  failed");
+				return false;
+			}else{
+				return true;
+			}
 		}else{
-			return true;
+			if(prereq_target.type==="contains"){
+				if(current_data.indexOf(prereq_target.value)!==-1){
+					return true;
+				}
+			}else{
+				console.log("checking task prereq "+prereq+"="+prereq_target+"  failed");
+				return false;
+			}
 		}
 
 	}catch(e){
