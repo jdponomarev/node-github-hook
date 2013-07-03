@@ -4,7 +4,7 @@
 		{
 			"name":"pull_code_and_backup",
 			"when":{
-				"repository.pusher.name":"jdponomarev"
+				"pusher.name":"jdponomarev"
 			},
 			"what":[
 
